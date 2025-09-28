@@ -162,7 +162,6 @@ const GenwinCatalog = () => {
     }
   };
 
-  
   const nextPage = () => {
     if (currentPage < totalPages - 1 && !isFlipping) {
       setIsFlipping(true);
@@ -174,7 +173,7 @@ const GenwinCatalog = () => {
     }
   };
 
-   const prevPage = () => {
+  const prevPage = () => {
     if (currentPage > 0 && !isFlipping) {
       setIsFlipping(true);
       playPageSound();
@@ -218,9 +217,7 @@ const GenwinCatalog = () => {
     if (selectedMedia) {
       const link = document.createElement("a");
       link.href = selectedMedia.downloadUrl || selectedMedia.url;
-      link.download = `genwin-product-${selectedMedia.type}.${
-        selectedMedia.type === "video" ? "mp4" : "jpg"
-      }`;
+      link.download = `genwin-product-${selectedMedia.type}.${selectedMedia.type === "video" ? "mp4" : "jpg"}`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -347,7 +344,7 @@ const GenwinCatalog = () => {
                 alt={product.name}
                 className="w-full max-w-md h-64 object-cover rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all flex items-center justify-center">
+              <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all flex items-center justify-center">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-3">
                   <Search className="text-gray-700" size={24} />
                 </div>
@@ -380,7 +377,7 @@ const GenwinCatalog = () => {
 
             <div className="flex gap-4 mb-8">
               <div
-                className="flex-1 bg-gray-200 rounded p-4 text-center cursor-pointer hover:bg-gray-300 transition-colors"
+                className="flex-1 bg-gray-200 rounded p-4 text-center cursor-pointer hover:bg-gray-300 transition-colors relative group"
                 onClick={() =>
                   openMediaZoom(
                     image,
@@ -391,10 +388,19 @@ const GenwinCatalog = () => {
                 <div className="text-xs text-gray-600 mb-1">
                   Additional Image
                 </div>
-                <div className="w-full h-16 bg-white rounded"></div>
+                <img
+                  src={image}
+                  alt="Additional product image"
+                  className="w-full h-16 object-cover rounded"
+                />
+                <div className="absolute inset-0  bg-opacity-0 group-hover:bg-opacity-30 rounded transition-all flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-2">
+                    <Search className="text-gray-700" size={16} />
+                  </div>
+                </div>
               </div>
               <div
-                className="flex-1 bg-gray-200 rounded p-4 text-center cursor-pointer hover:bg-gray-300 transition-colors"
+                className="flex-1 bg-gray-200 rounded p-4 text-center cursor-pointer hover:bg-gray-300 transition-colors relative group"
                 onClick={() =>
                   openMediaZoom(
                     video,
@@ -405,7 +411,16 @@ const GenwinCatalog = () => {
                 <div className="text-xs text-gray-600 mb-1">
                   Product Video
                 </div>
-                <div className="w-full h-16 bg-white rounded"></div>
+                <video
+                  src={video}
+                  className="w-full h-16 object-cover rounded"
+                  muted
+                />
+                <div className="absolute inset-0  bg-opacity-0 group-hover:bg-opacity-30 rounded transition-all flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-2">
+                    <Search className="text-gray-700" size={16} />
+                  </div>
+                </div>
               </div>
             </div>
 
