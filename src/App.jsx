@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Search, ZoomIn, ZoomOut, X, FileDown } from "lucide-react";
+import image from "./assets/image.png";
+import video from "../public/sounds/video.mp4"
 
 const GenwinCatalog = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -255,7 +257,7 @@ const GenwinCatalog = () => {
       <div className="relative z-10 text-center px-8">
         <div className="mb-8">
           <img
-            src="/api/placeholder/80/80"
+            src={image}
             alt="cover"
             className="w-20 h-20 mx-auto mb-6 rounded-full bg-white p-2"
           />
@@ -277,7 +279,7 @@ const GenwinCatalog = () => {
     <div className="h-full bg-white p-8">
       <div className="flex items-center gap-4 mb-8">
         <img
-          src="/api/placeholder/48/48"
+          src={image}
           alt="Genwin Logo"
           className="w-12 h-12"
         />
@@ -305,10 +307,10 @@ const GenwinCatalog = () => {
         ))}
       </div>
 
-      <div className="absolute right-8 top-1/2 transform -translate-y-1/2 w-80 h-80 bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center">
+      <div className="absolute right-80 top-1/2 transform -translate-y-1/2 w-[700px] h-[400px] bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center">
         <div className="text-center text-gray-500">
           <img
-            src="/api/placeholder/200/200"
+            src={image}
             alt="placeholder"
             className="mx-auto mb-2 opacity-50"
           />
@@ -335,13 +337,13 @@ const GenwinCatalog = () => {
               className="relative group cursor-pointer"
               onClick={() =>
                 openMediaZoom(
-                  `/api/placeholder/400/300?text=${product.name}`,
+                  image,
                   "image"
                 )
               }
             >
               <img
-                src=""
+                src={image}
                 alt={product.name}
                 className="w-full max-w-md h-64 object-cover rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
               />
@@ -381,13 +383,13 @@ const GenwinCatalog = () => {
                 className="flex-1 bg-gray-200 rounded p-4 text-center cursor-pointer hover:bg-gray-300 transition-colors"
                 onClick={() =>
                   openMediaZoom(
-                    `/api/placeholder/200/150?text=PHOTO+1`,
+                    image,
                     "image"
                   )
                 }
               >
                 <div className="text-xs text-gray-600 mb-1">
-                  Photo / Video Placeholder
+                  Additional Image
                 </div>
                 <div className="w-full h-16 bg-white rounded"></div>
               </div>
@@ -395,13 +397,13 @@ const GenwinCatalog = () => {
                 className="flex-1 bg-gray-200 rounded p-4 text-center cursor-pointer hover:bg-gray-300 transition-colors"
                 onClick={() =>
                   openMediaZoom(
-                    `/api/placeholder/200/150?text=PHOTO+2`,
-                    "image"
+                    video,
+                    "video"
                   )
                 }
               >
                 <div className="text-xs text-gray-600 mb-1">
-                  Photo / Video Placeholder
+                  Product Video
                 </div>
                 <div className="w-full h-16 bg-white rounded"></div>
               </div>
@@ -427,7 +429,7 @@ const GenwinCatalog = () => {
     <div className="h-full bg-white p-6">
       <div className="flex items-center gap-4 mb-6">
         <img
-          src="/api/placeholder/40/40"
+          src={image}
           alt="Genwin Logo"
           className="w-10 h-10"
         />
@@ -501,9 +503,10 @@ const GenwinCatalog = () => {
     <div className="h-full bg-gradient-to-br from-gray-50 to-white p-8 flex items-center justify-center">
       <div className="text-center max-w-2xl">
         <div className="mb-8">
-          <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-white text-2xl font-bold">GW</span>
-          </div>
+          <img
+            src={image}
+            className="w-20 h-20 rounded-full mx-auto mb-4"
+          />
           <h2 className="text-4xl font-bold text-gray-800 mb-2">Contact Us</h2>
           <p className="text-gray-600">
             We're here to help you with all your adhesive tape needs
@@ -614,7 +617,7 @@ const GenwinCatalog = () => {
       <div className="bg-white border-b flex justify-between items-center px-6 py-3">
         <div className="flex items-center gap-4">
           <img
-            src="/api/placeholder/40/40"
+            src={image}
             alt="Genwin Logo"
             className="w-10 h-10"
           />
